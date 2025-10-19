@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../models/reservation';
 import { ReservationService } from '../reservation/reservation.service';
 import { RouterModule } from '@angular/router';
+import { HomeModule } from '../home/home-module';
 
 @Component({
   selector: 'app-reservation-list',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, HomeModule],
   templateUrl: './reservation-list.html',
   styleUrl: './reservation-list.css',
 })
