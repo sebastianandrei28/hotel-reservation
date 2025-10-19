@@ -1,0 +1,24 @@
+<h2>Reservation List</h2>
+
+@if (reservations.length>0){
+<ul>
+  @for (reservation of reservations; track reservation.id){
+  <li>
+    Guest:{{ reservation.guestName }}<br />
+    Email:{{ reservation.guestEmail }}<br />
+    Room No.:{{ reservation.roomNumber }}<br />
+    Check-In:{{ reservation.checkInDate }}<br />
+    Check-Out:{{ reservation.checkOutDate }}<br />
+    <button (click)="deleteReservation(reservation.id)">Delete</button>
+    <button [routerLink]="['/edit', reservation.id]">Edit</button>
+  </li>
+  }
+</ul>
+}@else{
+
+<div class="no-reservations">
+  <p>No reservation available</p>
+  <button [routerLink]="['/new']">Create a new reservation</button>
+</div>
+
+}
