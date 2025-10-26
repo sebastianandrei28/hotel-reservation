@@ -1,18 +1,1 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Global dark gray background for all pages */
-html,
-body {
-  background-color: #494949; /* Dark gray background */
-  color: #ffffff; /* White text for better contrast */
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-/* Ensure the app root takes full height */
-app-root {
-  display: block;
-  min-height: 100vh;
-  background-color: #494949;
-}
+@import 'bootstrap/dist/css/bootstrap.min.css';

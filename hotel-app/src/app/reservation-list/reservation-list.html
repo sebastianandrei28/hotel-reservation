@@ -1,20 +1,40 @@
 <app-home></app-home>
-<h2>Reservation List</h2>
+<h3 class="mt-5 mb-3">Reservation List</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Guest</th>
+      <th>Email</th>
+      <th>Room</th>
+      <th>Check-In</th>
+      <th>Check-Out</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (reservation of reservations; track reservation.id){
+    <tr>
+      <td>Guest:{{ reservation.guestName }}</td>
+      <td>Email:{{ reservation.guestEmail }}</td>
+      <td>Room No.:{{ reservation.roomNumber }}</td>
+      <td>Check-In:{{ reservation.checkInDate }}</td>
+      <td>Check-Out:{{ reservation.checkOutDate }}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="deleteReservation(reservation.id)">
+          Delete
+        </button>
+        <button class="btn btn-secondary mx-1" [routerLink]="['/edit', reservation.id]">
+          Edit
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
 
 @if (reservations.length>0){
-<ul>
-  @for (reservation of reservations; track reservation.id){
-  <li>
-    Guest:{{ reservation.guestName }}<br />
-    Email:{{ reservation.guestEmail }}<br />
-    Room No.:{{ reservation.roomNumber }}<br />
-    Check-In:{{ reservation.checkInDate }}<br />
-    Check-Out:{{ reservation.checkOutDate }}<br />
-    <button (click)="deleteReservation(reservation.id)">Delete</button>
-    <button [routerLink]="['/edit', reservation.id]">Edit</button>
-  </li>
-  }
-</ul>
+<ul></ul>
 }@else{
 
 <div class="no-reservations">
